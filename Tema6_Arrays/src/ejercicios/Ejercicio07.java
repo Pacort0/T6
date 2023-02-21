@@ -10,15 +10,11 @@ public class Ejercicio07 {
 
 		System.out.println("Introduzca una cadena: ");
 		cad = sc.nextLine();
-		
-		cad = cad.replaceAll(" " , "");
 
-		if(delReves(cad).equalsIgnoreCase(cad)) {
-			System.out.println("La cadena introducida es un palíndromo.");
-		}
-		else {
-			System.out.println("La cadena introducida no es un palíndromo.");
-		}
+		cad = cad.replaceAll(" ", "");
+
+		System.out.println(delReves(cad).equalsIgnoreCase(cad) ? "La cadena introducida es un palíndromo."
+				: "La cadena introducida no es un palíndromo.");
 
 		sc.close();
 	}
