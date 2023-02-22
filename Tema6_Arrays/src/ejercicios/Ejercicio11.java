@@ -29,7 +29,7 @@ public class Ejercicio11 {
 			}
 		}
 		
-		System.out.println("La palabra más larga de esa cadena es \"" + larga + "\" y  su longitud es de " + larga.length() + " letras.");
+		System.out.println("La palabra más larga de esa cadena es \"" + larga + "\" y su longitud es de " + larga.length() + " letras.");
 	}
 
 }
