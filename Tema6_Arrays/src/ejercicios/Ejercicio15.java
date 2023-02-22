@@ -26,7 +26,7 @@ public class Ejercicio15 {
 			System.out.println("El anagrama de la palabra es \"" + anagrama + "\". Adelante: ");
 			adivina = sc.next();
 			
-			
+			System.out.println(String.valueOf(oculto(oculto, adivina, cad)));
 			
 			cont++;
 			System.out.println("Usted lleva " + cont + " intentos.");
@@ -80,7 +80,7 @@ public class Ejercicio15 {
 	public static char[] oculto(char[] oculto, String adivina, String cad) {
 		
 		for(int i=0; i<adivina.length(); i++) {
-			
+			oculto[i] = adivina.charAt(i) == cad.charAt(i) ? cad.charAt(i) : '-';
 		}
 		
 		return oculto;
