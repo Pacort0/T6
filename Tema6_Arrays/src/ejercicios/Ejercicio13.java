@@ -35,7 +35,7 @@ public class Ejercicio13 {
 		Boolean repetida = false;
 		int cont=0;
 		
-		while(repetida != true && cont<indice && indice != 0) {
+		while(!repetida && cont<indice && indice != 0) {
 			repetida = letras[cont] == letras[indice] ? true : false;
 			cont++;
 		}

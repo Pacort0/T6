@@ -57,7 +57,7 @@ public class Ejercicio14 {
 		Boolean repetido = false;
 		int cont = 0;
 		
-		while(cont<usados.length && repetido == false) {
+		while(cont<usados.length && !repetido) {
 			repetido = usados[cont] == indice ? true : false;
 			cont++;
 		}

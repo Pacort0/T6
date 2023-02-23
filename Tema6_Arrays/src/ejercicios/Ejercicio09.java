@@ -11,7 +11,6 @@ public class Ejercicio09 {
 		String aCodificar;
 		char c;
 		char[] codificacion = new char[0];
-		String codificado = "";
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -23,9 +22,8 @@ public class Ejercicio09 {
 			codificacion = Arrays.copyOf(codificacion, codificacion.length+1); //Aumentamos el tamaño del array de caracteres
 			codificacion[i] = codifica(conjunto1, conjunto2, c); //Asignamos a la nueva posicion del array el valor codificado del caracter c
 		}
-		codificado = String.valueOf(codificacion); //Pasamos la palabra codificada de 'array de chars' a 'String'
 		
-		System.out.println(codificado);
+		System.out.println(String.valueOf(codificacion));
 		
 		sc.close();
 	}
