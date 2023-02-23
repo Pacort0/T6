@@ -32,7 +32,7 @@ public class Ejercicio13 {
 	}
 	
 	public static Boolean repetida(char letras[], int indice) {
-		Boolean repetida = false;
+		Boolean repetida = false; //Compruebo si ya he usado esa letra
 		int cont=0;
 		
 		while(!repetida && cont<indice && indice != 0) {
@@ -44,7 +44,7 @@ public class Ejercicio13 {
 	}
 	
 	public static int contador (char letras[], int indice) {
-		int cont = 0;
+		int cont = 0; //Cuento las incidencias de esa letra
 		
 		for(int i=indice; i<letras.length; i++) {
 			if(letras[i] == letras[indice]) {
