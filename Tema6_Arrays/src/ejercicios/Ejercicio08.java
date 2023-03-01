@@ -5,28 +5,37 @@ import java.util.Scanner;
 public class Ejercicio08 {
 
 	public static void main(String[] args) {
-		String cad;
+		String cad; //Guarda la cadena introducida por teclado
 
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in); 
 
 		System.out.println("Introduzca una oración en algún idioma: ");
 		cad = sc.nextLine();
 		
-		javalan(cad);
+		javalan(cad); //Llama a la función 'javalan'
 		
 		sc.close();
 	}
-
-	public static void javalan(String cad) {
-		String idiomaRaro;
+	
+	/**
+	 * Función que devuelve la traducción de la cadena 
+	 * @param cad Recibe la cadena original por parámetros
+	 */
+	public static void javalan(String cad) { 
+		String idiomaRaro; //Cadena que guarda la solución
 
 		idiomaRaro = (cad.startsWith("Javalin, javalon, \t") || cad.endsWith("\t" + "javalen, len, len"))
-				? traduccion(cad)
-				: cristiano();
+				? traduccion(cad) //Si la cadena está escrita en javalan, se llama a la función 'traduccion'
+				: cristiano(); //Si la cadena está escrita en español, se llama a la función 'cristiano'
 
-		System.out.println(idiomaRaro);
+		System.out.println(idiomaRaro); //Devuelve la cadena impresa
 	}
-
+	
+	/**
+	 * Función que devuelve la cadena original traducida
+	 * @param cad Recibe la cadena original por parámetros
+	 * @return Devuelve la cadena traducida
+	 */
 	public static String traduccion(String cad) {
 		String traducido;
 		int indice;
@@ -41,7 +50,11 @@ public class Ejercicio08 {
 
 		return "La cadena introducida está escrita en Javaliano: " + traducido;
 	}
-
+	
+	/**
+	 * Función que indica que la cadena original está escrita en español
+	 * @return Devuelve una cadena
+	 */
 	public static String cristiano() {
 		return "La cadena introducida está escrita en español.";
 	}

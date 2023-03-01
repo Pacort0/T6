@@ -5,16 +5,17 @@ import java.util.Scanner;
 public class Ejercicio03 {
 
 	public static void main(String[] args) {
-		String cad;
-		int cont = 0;
+		String cad; //Guarda la cadena que se introduce
+		int cont = 0; //Contador de espacios
 		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Introduzca una frase: ");
 		cad = sc.nextLine();
 		
-		for(int i=0; i<cad.length()-1; i++) {
-			if(cad.charAt(i) == ' ') {
+		//Bucle para recorrer la oración
+		for(int i=0; i<cad.length()-1; i++) { 
+			if(cad.charAt(i) == ' ') { //Si algún carácter es un espacio, se suma +1 a cont
 				cont++;
 			}
 		}

@@ -48,6 +48,12 @@ public class Ejercicio02 {
 		return pistas;
 	}
 	
+	/**
+	 * Función que muestra las coincidencias entre la palabra introducida y la contraseña
+	 * @param solucion Contraseña elegida por el jug1
+	 * @param intento Contraseña introducida por el jug2
+	 * @param Cadena generada con las pistas
+	 */
 	public static void pista(String solucion, String intento, char[] pista) {
 		int cont = 0;
 		
