@@ -18,10 +18,10 @@ public class Ejercicio10 {
 		System.out.println("Esta es la tabla de caracteres: " + String.valueOf(conjunto2) + "\nEscriba una palabra codificada: ");
 		aCodificar = sc.next().toLowerCase();
 		
-		for(int i=0; i<aCodificar.length(); i++) {
-			c = aCodificar.charAt(i);
-			codificacion = Arrays.copyOf(codificacion, codificacion.length+1);
-			codificacion[i] = codifica(conjunto1, conjunto2, c);
+		for(int i=0; i<aCodificar.length(); i++) { //Recorremos la palabra
+			c = aCodificar.charAt(i); //Cogemos el caracter 'i' de la palabra
+			codificacion = Arrays.copyOf(codificacion, codificacion.length+1); //Aumentamos el tamaño del array de caracteres
+			codificacion[i] = codifica(conjunto1, conjunto2, c); //Asignamos a la nueva posicion del array el valor codificado del caracter c
 		}
 		codificado = String.valueOf(codificacion);
 		
@@ -31,13 +31,13 @@ public class Ejercicio10 {
 	}
 	
 	public static char codifica(char[] conjunto1, char[] conjunto2, char c) {
-		String conj2 = String.valueOf(conjunto2);
-		int indiC;
+		String conj2 = String.valueOf(conjunto2);  //Pasamos el array de chars a una cadena para poder buscar la posición de 'c'
+		int indiC; //Para guardar el valor de la posición de 'c'
 		
-		indiC = conj2.indexOf(c);
+		indiC = conj2.indexOf(c); //Buscamos el valor de la posición de 'c' y lo guardamos en 'indiC'
 		
-		if(indiC >= 0) {
-			c = conjunto1[indiC];
+		if(indiC >= 0) { //Si la letra es codificable (si el valor es positivo, ya que si no la encuentra, 'indexOf' devuelve '-1')
+			c = conjunto1[indiC]; //Cambiamos el valor de 'c' al valor guardado en la posición 'indiC' del conjunto1
 		}
 		
 		return c;
