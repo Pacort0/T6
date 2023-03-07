@@ -3,60 +3,81 @@ package ejercicios;
 import java.util.Scanner;
 
 public class Ejercicio08 {
+    /**
+     * Los habitantes de Javalandia tienen un idioma algo extraño; cuando hablan siempre comienzan sus frases con
+     * “Javalín, javalón”, para después hacer una pausa más o menos larga (la pausa se representa mediante espacios
+     * en blanco o tabuladores) y a continuación expresan el mensaje. Existe un dialecto que no comienza sus frases
+     * con la muletilla anterior, pero siempre las terminan con un silencio, más o menos prolongado y la coletilla
+     * “javalén, len, len”. Se pide diseñar un traductor que, en primer lugar, nos diga si la frase introducida está
+     * escrita en el idioma de Javalandia (en cualquiera de sus dialectos), y en caso afirmativo, nos muestre solo el
+     * mensaje sin muletillas.
+     */
 
-	public static void main(String[] args) {
-		String cad; //Guarda la cadena introducida por teclado
+    public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in); 
+        //Declaramos las variables
+        String frase;
 
-		System.out.println("Introduzca una oración en algún idioma: ");
-		cad = sc.nextLine();
-		
-		javalan(cad); //Llama a la función 'javalan'
-		
-		sc.close();
-	}
-	
-	/**
-	 * Función que devuelve la traducción de la cadena 
-	 * @param cad Recibe la cadena original por parámetros
-	 */
-	public static void javalan(String cad) { 
-		String idiomaRaro; //Cadena que guarda la solución
+        //Declaramos el scanner
+        Scanner sc = new Scanner(System.in);
 
-		idiomaRaro = (cad.startsWith("Javalin, javalon, \t") || cad.endsWith("\t" + "javalen, len, len"))
-				? traduccion(cad) //Si la cadena está escrita en javalan, se llama a la función 'traduccion'
-				: cristiano(); //Si la cadena está escrita en español, se llama a la función 'cristiano'
+        //Le pedimos al usuario que introduzca una frase
+        System.out.println("Introduzca una frase: ");
+        frase = sc.nextLine();
 
-		System.out.println(idiomaRaro); //Devuelve la cadena impresa
-	}
-	
-	/**
-	 * Función que devuelve la cadena original traducida
-	 * @param cad Recibe la cadena original por parámetros
-	 * @return Devuelve la cadena traducida
-	 */
-	public static String traduccion(String cad) {
-		String traducido;
-		int indice;
+        if (esJavalandia(frase)) {  //Si la frase está escrita en el idioma de Javalandia mostramos la traducción
+            System.out.println("La frase esta escrita en el idioma de Javalandia");
+            System.out.println("La frase traducida es: " + traduccion(frase));
+        } else {                    //Si no, lo indicamos por consola
+            System.out.println("La frase no esta en el idioma de Javalandia");
+        }
 
-		if (cad.startsWith("Javalin, javalon," + "\t")) {
-			indice = cad.indexOf("\t");
-			traducido = cad.substring(indice);
-		} else {
-			indice = cad.indexOf("\t");
-			traducido = cad.substring(0, indice);
-		}
+        //Cerramos el scanner
+        sc.close();
+    }
 
-		return "La cadena introducida está escrita en Javaliano: " + traducido;
-	}
-	
-	/**
-	 * Función que indica que la cadena original está escrita en español
-	 * @return Devuelve una cadena
-	 */
-	public static String cristiano() {
-		return "La cadena introducida está escrita en español.";
-	}
+    /**
+     * Metodo que comprueba si
+     * @param frase está o no escrita en el idioma de Javalandia.
+     * @return false si no está en el idioma de Javalandia y true si está en el idioma de Javalandia
+     */
+    static boolean esJavalandia(String frase) {
+        //Declaramos las variables
+        boolean esIdioma = false;
+
+        //Si la frase empieza o termina por las coletillas especificadas en el enunciado
+        if (frase.startsWith("Javalín, javalón") || frase.endsWith("javalén, len, len")) {
+            esIdioma = true;  //Indicamos que la frase está en el idioma de Javalandia
+        }
+
+        return esIdioma;
+    }
+
+    /**
+     * Método que traduce la
+     * @param frase si está en el idioma de Javalandia
+     * @return la frase traducida
+     */
+    static String traduccion(String frase) {
+
+        //Declaramso las variables
+        String fraseTraducida = "";
+        int posColetillaFinal = frase.indexOf("javalén, len, len");
+
+        if (frase.startsWith("Javalín, javalón")) {          //Si la frase empieza por "Javalín, javalón"
+            //Hacemos una subcadena que le quite la coletilla
+            fraseTraducida = frase.substring(17);
+            //Le quitamos los espacios en blanco innecesarios
+            fraseTraducida = fraseTraducida.trim();
+
+        } else if (frase.endsWith("javalén, len, len")) {   //Si la frase termina por "javalén, len, len"
+            //Hacemos una subcadena que le quite la coletilla
+            fraseTraducida = frase.substring(0, posColetillaFinal);
+            //Le quitamos los espacios en blanco innecesarios
+            fraseTraducida = fraseTraducida.trim();
+        }
+
+        return fraseTraducida;
+    }
 
 }
